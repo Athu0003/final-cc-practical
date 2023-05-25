@@ -1,0 +1,96 @@
+github : user name :Athu003 pwd: Aa13032003
+
+
+Commands To Execute In Visual Studio Code Terminal:
+ - For Pushing First File:
+  1. git --version
+  2. git init
+  3. git add .
+  4. git status
+  5. git remote add origin "link of your github repository"
+  6. git commit -m "any message"
+  7. If Prompted to authenticate the user, execute following commands:
+   7.1 git config --global user.email "your git hub email id"
+     7.2 git config --global user.name "Your git hub user name"
+    8. git push -u origin master
+    9. git status
+    Now, check your github repository (refresh the page) whether the file is pushed or not.
+
+ - For Pushing Second File:
+  1. git add .
+  2. git status
+  3. git commit -m "any message"
+  4. git push -u origin master
+    5. git status
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Wad Assignment
+
+5B - Create 4 APIs
+ create one file - (server.js)
+
+const express = require("express")
+const app = express()
+const mongoose = require("mongoose")
+mongoose.connect("mongodb://127.0.0.1:27017/user").then(() => {
+    console.log("connected to db...");
+})
+
+app.use(express.json())
+
+const userSchema = mongoose.Schema({
+    name: {
+        type: String
+    },
+    email: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    age: {
+        type: Number
+    },
+})
+
+const userModel = mongoose.model("userdata", userSchema)
+
+app.get("/alluser", async (req, res) => {
+    const data = await userModel.find({})
+    res.json({ status: "success", data })
+})
+
+app.post("/adduser", async (req, res) => {
+    const data = userModel.create(req.body)
+    res.json({ status: "success" })
+})
+
+app.put("/updateuser/:id", async (req, res) => {
+    try {
+        const data = await userModel.findByIdAndUpdate({ _id: req.params.id }, req.body)
+        res.json(data)
+    } catch (error) {
+        res.json(error)
+    }
+})
+
+app.delete("/deleteuser/:id", async (req, res) => {
+    const data = await userModel.findByIdAndDelete({ _id: req.params.id })
+    res.json({ success: "deleted success", data })
+})
+
+app.listen(3001, () => {
+    console.log("server started on port 3001");
+})
+
+Install packages - 
+-npm init
+-npm i express mongoose
+ 
+install thunder client extension
+
+and run it - 
+    node server.js
+postman url(localhost:3001/alluser)
+
+

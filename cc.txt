@@ -1,0 +1,129 @@
+------------------------------------------------------------------------------------------------
+Assignment 1:
+downloading:    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-422.0.0-linux-x86_64.tar.gz
+
+extracting:         tar -xvf <dowloaded path>
+
+cd <extracted directory>
+DRIVE LINK: - https://drive.google.com/drive/folders/1CQIjkVgNzzuV1c34RumIbdiUW52lzE1K?usp=share_link
+
+start command:   python /home/pc-33/Downloads/google-cloud-sdk/bin/dev_appserver.py  /home/pc-33/cc   (according to your path)
+
+index.py file:
+print("hello world")
+
+app.yaml file: 
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+- url: /
+  script: index.py
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 2:
+
+Same as Assignment 1, just change the app.yaml file and create your project in ./www folder in your project directory
+
+app.yaml file:
+
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
+
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
+
+
+
+steps to execute 
+
+
+1.Create a folder" project"
+2. Create a file app.yaml in project folder 
+3. Create sub folder" www"
+4. Create index.html file in www folder 
+5. Run using the commands: 
+py google -cloud-sdk\bin\dev_appserver.py <path of the project folder>
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+assignment 3:
+step1 : Download cloudsim-4.0 from the following link
+https://github.com/Cloudslab/cloudsim/releases/tag/cloudsim-4.0
+
+step2: Download sjf source code:
+https://www.mediafire.com/file/lkfl2sqg29mg69v/sjf.zip
+
+step3 : Open Eclipse
+
+> new-> project-> java project -> Add project name 
+>Open eclipse in your confined workspace
+>Click on new and open a new JAVA Project, give it a name
+>Create a package inside he src folder.
+>Dump in all the files here inside the package.
+>Now right click on the project and choose configure build path.
+>Click on the libraries section and add external jars
+>Extract the Cloudsim.tar file you downloaded
+>Now import the jar files in that Cloudsim.tar into the external jars.
+> remeber to change the name of the package in all the source files.
+>Now right click on the project and run the project as JAVA Application.
+>Select the SJF_Scheduler.java file present in the list.
+
+-------------------------------------------------------------------------------------------
+
+select nand network
+
+login - vagrant 
+password -vagrant
+
+VM1 - echo "test" >> test.txt
+	ls
+	scp test.txt vagrant@IP Address:/home/vagrant
+	enter password : vagrant
+	cat test.txt
+
+VM2 - ifconfig
+	cat test.txt
+
+-------------------------------------------------------------------------------
+assignment 4:
+
+scp <filename> vagrant@<ip_of_2nd_VM>:/home/vagrant
+
+======================================================================================
+Assignment 8\
+https://drive.google.com/uc?id=1fZsk_VvO5GrUNlIRelyDCZt7yE9OgkR6&export=download
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+assignment - firebase
+
+steps - (1) backend - change project Id (app.py)
+	- (2) fronend - change code (main.yml)
+	- login firebase - create new project
+
+
+
+
+----------------------------------------------------------------------------
+salesforce login :
+user name :     atharvadaphal961-xdv1@force.com
+pwd       :      Atharva@123
+
+
+=============================================================================
